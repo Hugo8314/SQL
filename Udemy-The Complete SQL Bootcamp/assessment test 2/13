@@ -1,0 +1,6 @@
+SELECT cd.facilities.facid,SUM(slots) AS total_slots
+FROM cd.facilities
+JOIN cd.bookings on cd.facilities.facid=cd.bookings.facid
+GROUP BY cd.facilities.facid
+HAVING SUM(slots)>1000
+ORDER BY cd.facilities.facid;
